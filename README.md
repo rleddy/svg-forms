@@ -7,6 +7,20 @@ The SVG that has been used so far has been ceated by drawing forms in **InkScape
 
 This is the start of a repository. Hopefully, it will grow. 
 
+## Why SVG
+
+SVG, which is fine for creating web pages has been ignored until recently. The SVG drawing programs have been around for a long time. But, SVG was a second class citizen on web pages until HTML5.  So, not as many people use it as CSS.  But, SVG is actually much simpler to use. And, there is a lot of Media, done in SVG, that loads faster on a page. So, SVG is included in AMP, while some other things are not. 
+
+I decided that instead of being stressed and distressed over the creation of forms and other interface widgets, that I could use SVG. But, not all SVG drawing programs are immediately equipped with tools for form creation. SVG is great for making pictures. But, you can make boring things with it, too. And, these will be made faster by drawing. They will be more easily managed. And, they will not take more space than HTML element that do the same thing. In some case, there will be a little bit more, but in other cases there may be a lot less. 
+
+There are also a lot of stacks for animating SVG. So, all those CSS effects that people work hours for, can be had with SVG in much less time. 
+
+SVG is a good thing to use.  Getting fancier, with 3D pacakges that expose OpenGL, makes wonderful interfaces. However, the web page user has to wait considerably longer to see the page. It can be well worth the wait, if the thing being delivered is something like a game or data visualization. But, SVG, like HTML can deliver less exciting things faster. SVG can also be used for data visualization, and there are complete packages for it. HTML can as well, and with large amounts of wizardy and many hours and days of getting it right, and after selecting and creating images stored in jpg or png, the HTML result will be available.  Of course, the same result can be gotten out of an SVG drawing package in some minutes, without lots of fancy picture work or those large files that go with it.
+
+That SVG is good for getting things on the screen fast can be seen in the numerous symbol libraries that have been created in the marketplace. But, why stop with symbols? This is like making wheels for toys and never thinking of wagons.
+
+## About what is here at the moment
+
 At the moment, thre are two files that may be run as node.js scripts. 
 
 There is no magic here. 
@@ -49,3 +63,5 @@ app.get('/plain/svg/:svFile',(req,res) => {
 });
 
 ```
+
+Note: the client code includes, "secondFetch" which uses jquery ajax to fetch the SVG file. This was done because my HTML used Marko for generating some of the HTML in a 'Bootstrap' context.  Marko rejects the SVG tags. 
