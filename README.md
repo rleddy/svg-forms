@@ -32,15 +32,46 @@ Some JavaScript for the client is provided. An HTML page can load an SVG file an
 
 There forms are not treated as pure HTML forms. It is expected that the web pages scripts will gather up the form data and send it as JSON to the waiting server. 
 
+# Mechanics
+
+>Draw an SVG diagram using an SVG editor, like InkScape. 
+
+>But, name some of the fields in special ways:
+
+     Ellipse  - turns the ellipse into a radio button
+     CheckBox - turns a rect element into a checkbox form element
+     Box - turns a rect into a field of type text.
+     Area  - turns the element, assumed to be a rect into a textArea form element
+     Combo or DropDown  - Turns a rect into one of these form elements.
+     BtnStyle - Turns the element into a button with a handler. 
+
+>Look in the examples at the -back.svg file to see how this is done. 
+
+>Now, the files can be run through two scripts. 
+
+>The first script that is useful to run is scrapesvg.js. This reads the original svg file and generates some data objects for use in the web application.
+
+```
+node scrapesvg.js examples/runners-back.svg 
+```
+
+>the second script has to be run. The script, svgform.js, transforms the original SVG into a file that can be loaded and used in the web application as a form, to be loaded by 'secondFetch'.
+
+```
+node svgform.js examples/ runners-back.svg test.svg
+```
+### call parameters
+the first parameter 'examples/'  is directory from where the file will be read, and to where an output file will be deposited. The second parameter is the name of a file that should be in the directry. The third parameter will be the name of the output file.
 
 ## dependecies:  Get them by npm -install ...
 ### node dependecies
 
-*xmldom
+* xmldom
 
 ### web page dependencies
 
-*svg.js
+* svg.js
+* jquery
 
 ------------------
 
