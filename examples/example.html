@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Untitled Document</title>
+    </head>
+    
+    <body>
+		
+		<h1>Simple example that loads an SVG application</h1>
+		
+		<form >
+			<div id="svgGoesHere-runners" >
+				<!---  SVG GOES HERE -->
+			</div>
+		</form>
+		
+		
+    </body>
+	
+</html>
+
+<script language="javascript">
+	window.appVars = {
+		runners : { }
+	};
+	window.fetchSections = "runners";
+	window.targetDiv = "svgGoesHere-runners";
+	window.fetchPage = "svg-runners.svg"
+	window.useFetchSVG = true;
+</script>
+
+
+<script language="javascript" src="jquery-2.1.4.min.js"></script>
+<script src='svg.min.js'></script>
+<script language="javascript" src="secondFetch.js"></script>
+<script language="javascript" src="slider.js"></script>
+<script language="javascript" src="app-runners.js"></script>
+
+
