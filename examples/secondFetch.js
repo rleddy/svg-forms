@@ -1,6 +1,11 @@
 
 
 
+if ( window.clonify === undefined ) {
+    window.clonify = (obj) => { return(JSON.parse(JSON.stringify(obj))); };
+}
+
+
 
 function scrollHandleAction(e,target) {
 
@@ -59,11 +64,6 @@ $(document).ready(function() {
         var page = window.fetchPage;
         var dataFetchPage = `/svg/${page}`;
         var parentEl =  "#" + window.targetDiv;
-
-console.log(page)
-console.log(dataFetchPage)
-console.log(parentEl)
-
 
         $.get( dataFetchPage, function( data ) {
             $( parentEl ).html( data );

@@ -655,11 +655,6 @@ window.appVars.runners.ready = () => {
 
 
 
-if ( window.clonify === undefined ) {
-    window.clonify = (obj) => { return(JSON.parse(JSON.stringify(obj))); };
-}
-
-
 function add_script(src_name) {
     $('#scriptDropDown-Select').append('<option>' + src_name + '</option>' );
     $('#scriptDropDown-Select').val(src_name);
