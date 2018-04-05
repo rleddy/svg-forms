@@ -1,1 +1,3 @@
 **/node_modules/xmldom/*
+examples/node_modules/*
+examples/petri/node_modules/*

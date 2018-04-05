@@ -1,13 +1,14 @@
-
 const express = require('express');
 const app = express();
-
 const fs = require('fs');
 
-function loadMainPage(res) {
-    fs.readFile('example.html','utf8', (err,data) => {
+const appPort = 3000;
+
+// Use on generic function to load file stuff and send it to the client
+function loadPage(filename, res) {
+    fs.readFile(filename,'utf8', (err,data) => {
                     if ( err ) {
-                        res.send("OOPS!")
+                        res.send(JSON.stringify(err));
                     } else {
                         var page = data.toString();
                         res.send(page);
@@ -15,47 +16,19 @@ function loadMainPage(res) {
                 })
 }
 
-
-
-
+// The paths (routes) to the files we want to send.
 app.get('/', (req, res) => {
-
-            loadMainPage(res);
-
-        })
-
+            loadPage('example.html',res);
+        });
 
 app.get('/:file', (req, res) => {
+            loadPage(req.params.file,res);
+        });
 
-console.log(req.params.file)
+app.get('/svg/:svFile',(req,res) => {  // look in a particular directory
+            loadPage('./svg/' + req.params.svFile,res);
+        });
 
-            fs.readFile(req.params.file,'utf8', (err,data) => {
-                            if ( err ) {
-                                res.send(JSON.stringify(err));
-                            } else {
-                                var page = data.toString();
-                                res.send(page);
-                            }
-                        })
-
-        })
-
-app.get('/svg/:svFile',(req,res) => {
-            var file = req.params.svFile;
-
-            fs.readFile(file, (err,data) => {
-                            if ( err ) {
-                                res.send(JSON.stringify(err));
-                            } else {
-                                var sData = data.toString();
-                                res.send(sData)   // send a file that is the output of the utilities
-                            }
-                        });
-
-
-});
-
-
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
-
-
+// Run it.  Really, you have to or else this app will terminate and the bowser
+// will put up error messages.
+app.listen(appPort, () => console.log(`Example app listening on port ${appPor}!`))
